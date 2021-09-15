@@ -2,14 +2,16 @@ import React from "react";
 import "./Header.css";
 import { changeSearchValue } from "../../Slices/rootSlice";
 import { useDispatch } from "react-redux";
-
+import { Link } from "react-router-dom";
 const Header = () => {
   const dispatch = useDispatch();
   return (
     <div>
       <nav className="navbar navbar-light bg-light">
         <div className="container-fluid">
-          <p className="navbar-brand">Spacestagram</p>
+          <Link to={"/"}>
+            <p className="navbar-brand">Spacestagram</p>
+          </Link>
           <form className="d-flex">
             <input
               className="form-control me-2"

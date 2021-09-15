@@ -1,6 +1,6 @@
 import React from "react";
 import "./Post.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { changeLike } from "../../Slices/rootSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -16,25 +16,25 @@ const Post = ({ post }) => {
       <div className="row">
         <div className="col-lg-12">
           <div className="card mb-4">
-            {/* <Link to={`/post/${post.id}`}> */}
-            <div className="card-body">
-              <div className="media mb-3">
-                <div className="stats">
-                  <div>
-                    <div className="media-body">
-                      {post.rover.name}
-                      {" rover - "}
-                      {post.camera.full_name}
-                      <div className="text-muted small">
-                        {post.rover.launch_date}
+            <Link to={`/post/${post.id}`}>
+              <div className="card-body">
+                <div className="media mb-3">
+                  <div className="stats">
+                    <div>
+                      <div className="media-body">
+                        {post.rover.name}
+                        {" rover - "}
+                        {post.camera.full_name}
+                        <div className="text-muted small">
+                          {post.rover.launch_date}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <img src={post.img_src} alt={post.rover.full_name} />
               </div>
-              <img src={post.img_src} alt={post.rover.full_name} />
-            </div>
-            {/* </Link> */}
+            </Link>
             <div className="card-footer flex justify-center items-center">
               {liked ? (
                 <button
