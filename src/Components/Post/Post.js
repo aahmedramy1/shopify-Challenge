@@ -12,20 +12,20 @@ const Post = ({ post }) => {
     }).liked;
   });
   return (
-    <div class="container posts-content custContainer">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card mb-4">
+    <div className="container posts-content lg:w-2/5 md:w-1/2 sm: w-3/4">
+      <div className="row">
+        <div className="col-lg-12">
+          <div className="card mb-4">
             {/* <Link to={`/post/${post.id}`}> */}
-            <div class="card-body">
-              <div class="media mb-3">
+            <div className="card-body">
+              <div className="media mb-3">
                 <div className="stats">
                   <div>
-                    <div class="media-body">
+                    <div className="media-body">
                       {post.rover.name}
                       {" rover - "}
                       {post.camera.full_name}
-                      <div class="text-muted small">
+                      <div className="text-muted small">
                         {post.rover.launch_date}
                       </div>
                     </div>
@@ -35,7 +35,7 @@ const Post = ({ post }) => {
               <img src={post.img_src} alt={post.rover.full_name} />
             </div>
             {/* </Link> */}
-            <div class="card-footer flex justify-center items-center">
+            <div className="card-footer flex justify-center items-center">
               {liked ? (
                 <button
                   onClick={() => {
