@@ -1,6 +1,6 @@
 import React from "react";
 import "./Post.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { changeLike } from "../../Slices/rootSlice";
 import { useDispatch, useSelector } from "react-redux";
 
