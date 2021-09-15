@@ -1,7 +1,10 @@
 import React from "react";
 import "./Header.css";
+import { changeSearchValue } from "../../Slices/rootSlice";
+import { useDispatch } from "react-redux";
 
 const Header = () => {
+  const dispatch = useDispatch();
   return (
     <div>
       <nav className="navbar navbar-light bg-light">
@@ -13,10 +16,13 @@ const Header = () => {
               type="search"
               placeholder="Search"
               aria-label="Search"
+              onChange={(e) => {
+                dispatch(changeSearchValue(e.target.value));
+              }}
             />
-            <button className="btn btn-outline-success" type="submit">
+            {/* <button className="btn btn-outline-success" type="submit">
               Search
-            </button>
+            </button> */}
           </form>
         </div>
       </nav>

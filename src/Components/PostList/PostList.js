@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 const PostList = () => {
   const posts = useSelector((state) => state.posts);
+  const search = useSelector((state) => state.searchValue);
+
   const dispatch = useDispatch();
   useEffect(() => {
     const getData = () => {
@@ -28,9 +30,15 @@ const PostList = () => {
   }, [dispatch]);
   return (
     <div>
-      {posts.map((photo) => {
-        return <Post key={photo.id} post={photo} />;
-      })}
+      {posts
+        .filter((photo) => {
+          return `${photo.rover.name} rover - ${photo.camera.full_name}`
+            .toLowerCase()
+            .includes(search);
+        })
+        .map((photo) => {
+          return <Post key={photo.id} post={photo} />;
+        })}
     </div>
   );
 };

@@ -19,8 +19,11 @@ const rootSlice = createSlice({
       });
       photo.liked = !photo.liked;
     },
+    changeSearchValue: (state, action) => {
+      state.searchValue = action.payload;
+    },
   },
 });
 
-export const { getPosts, changeLike } = rootSlice.actions;
+export const { getPosts, changeLike, changeSearchValue } = rootSlice.actions;
 export default rootSlice.reducer;
