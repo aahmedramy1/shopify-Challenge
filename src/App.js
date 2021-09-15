@@ -36,7 +36,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className="App mb-12">
       <Header />
       {posts.length === 0 ? <Loading /> : null}
       <Switch>
