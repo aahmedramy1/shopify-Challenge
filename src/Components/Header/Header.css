@@ -1,5 +1,6 @@
 @media (max-width: 425px) {
   .container-fluid {
     justify-content: center !important;
+    flex-direction: column;
   }
 }

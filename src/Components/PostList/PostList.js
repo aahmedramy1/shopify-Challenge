@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import Post from "../Post/Post";
 import axios from "axios";
-import { getPosts } from "../../Slices/rootSlice";
+import { getPosts, morePosts } from "../../Slices/rootSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const PostList = () => {
   const posts = useSelector((state) => state.posts);
   const search = useSelector((state) => state.searchValue);
+  const numOfPosts = useSelector((state) => state.numOfPosts);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -36,9 +37,24 @@ const PostList = () => {
             .toLowerCase()
             .includes(search);
         })
-        .map((photo) => {
-          return <Post key={photo.id} post={photo} />;
+        .map((photo, index) => {
+          if (index < numOfPosts) {
+            return <Post key={photo.id} post={photo} />;
+          } else {
+            return null;
+          }
         })}
+      <div className="flex justify-center items-center">
+        <button
+          onClick={() => {
+            dispatch(morePosts());
+          }}
+          type="button"
+          className="btn btn-secondary"
+        >
+          See More
+        </button>
+      </div>
     </div>
   );
 };
