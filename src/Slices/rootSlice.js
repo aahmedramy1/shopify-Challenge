@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  posts: [1, 2, 3, 4],
+  posts: [],
   numOfPosts: 6,
   searchValue: "",
 };
@@ -13,8 +13,14 @@ const rootSlice = createSlice({
     getPosts: (state, action) => {
       state.posts = action.payload;
     },
+    changeLike: (state, action) => {
+      const photo = state.posts.find((element) => {
+        return element.id === action.payload;
+      });
+      photo.liked = !photo.liked;
+    },
   },
 });
 
-export const { getPosts } = rootSlice.actions;
+export const { getPosts, changeLike } = rootSlice.actions;
 export default rootSlice.reducer;

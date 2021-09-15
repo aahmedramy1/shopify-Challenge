@@ -5,10 +5,10 @@ const Header = () => {
     <div>
       <nav className="navbar navbar-light bg-light">
         <div className="container-fluid">
-          <p className="navbar-brand">Navbar</p>
+          <p className="navbar-brand">Spacestagram</p>
           <form className="d-flex">
             <input
-              class="form-control me-2"
+              className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
